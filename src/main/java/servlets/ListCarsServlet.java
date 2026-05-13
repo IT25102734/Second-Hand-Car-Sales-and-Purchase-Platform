@@ -27,7 +27,7 @@ public class ListCarsServlet extends HttpServlet {
         String maxPrice = request.getParameter("maxPrice");
         String brandIdParam = request.getParameter("brandId");
 
-        // If a brand is selected, override the make filter with the brand's name
+        // If a brand is selected, override make filter with brand name
         if (brandIdParam != null && !brandIdParam.isEmpty()) {
             try {
                 int brandId = Integer.parseInt(brandIdParam);
@@ -36,14 +36,14 @@ public class ListCarsServlet extends HttpServlet {
                     searchMake = brand.getName();
                 }
             } catch (NumberFormatException e) {
-                // ignore invalid brandId
+                // ignore
             }
         }
 
-        // Start with all available cars
-        List<Car> cars = carService.getAvailableCars();
+        // Get ALL cars (not only available)
+        List<Car> cars = carService.getAllCars();
 
-        // Apply filters using stream (compatible with older Java)
+        // Apply filters (case‑insensitive)
         if (searchMake != null && !searchMake.isEmpty()) {
             final String finalMake = searchMake;
             cars = cars.stream()
@@ -69,7 +69,7 @@ public class ListCarsServlet extends HttpServlet {
                     .collect(Collectors.toList());
         }
 
-        // Also pass the list of all brands to the JSP for the dropdown
+        // Also pass all brands for the dropdown
         List<Brand> allBrands = brandService.getAllBrands();
         request.setAttribute("brands", allBrands);
         request.setAttribute("cars", cars);
