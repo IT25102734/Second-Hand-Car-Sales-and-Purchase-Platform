@@ -1,0 +1,402 @@
+/* Import Google Font for Burmese (Myanmar) support */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;700&display=swap');
+
+/* ---------- RESET & BASE ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- BACKGROUND IMAGE & OVERLAY ---------- */
+body {
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Noto Sans Myanmar', 'Segoe UI', 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Dark overlay for readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: -1;
+}
+
+/* ---------- MODERN NAVBAR ---------- */
+.navbar {
+    background: linear-gradient(135deg, #1a2a3a 0%, #0f1a24 100%);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff, #ffc107);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 1px;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffc107;
+    transition: width 0.3s;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.navbar a:hover {
+    color: #ffc107;
+}
+
+/* ---------- CONTAINER & CARDS ---------- */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.card, .form-container {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 28px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* ---------- STAT CARDS (for Seller Dashboard) ---------- */
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+.stat-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.2rem;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #1e2a3a;
+    font-weight: 600;
+}
+
+.stat-card p {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffc107;
+    margin: 0;
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 28px;
+    margin-bottom: 2rem;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ---------- FEATURES SECTION (3 columns) ---------- */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    background: white;
+}
+
+.feature-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #1e2a3a;
+}
+
+.feature-card p {
+    color: #555;
+}
+
+/* ---------- FORMS ---------- */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #1e2a3a;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    font-size: 1rem;
+    background: #ffffff;
+    color: #1e2a3a;
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ffc107;
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2);
+}
+
+/* ---------- BUTTONS ---------- */
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #1e2a3a, #0f1a24);
+    color: white;
+    padding: 0.7rem 1.8rem;
+    border: none;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    color: #1e2a3a;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #ffc107;
+    color: #ffc107;
+}
+
+.btn-outline:hover {
+    background: #ffc107;
+    color: #1e2a3a;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #d9534f, #c9302c);
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #c9302c, #ac2925);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- TABLES ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background: #1e2a3a;
+    color: white;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+.status-available {
+    color: green;
+    font-weight: bold;
+}
+.status-sold {
+    color: red;
+    font-weight: bold;
+}
+
+/* ---------- ALERTS ---------- */
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    border-left: 5px solid #d9534f;
+}
+
+.success {
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    border-left: 5px solid #28a745;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+    background: #1a2a3a;
+    color: #ccc;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 3rem;
+    font-size: 0.85rem;
+}
+
+.footer a {
+    color: #ffc107;
+    text-decoration: none;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .container {
+        padding: 0 1rem;
+    }
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+    .feature-card {
+        width: 100%;
+        max-width: 300px;
+    }
+    th, td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+    .stat-card {
+        min-width: 100px;
+        padding: 0.8rem;
+    }
+    .stat-card p {
+        font-size: 1.2rem;
+    }
+}
