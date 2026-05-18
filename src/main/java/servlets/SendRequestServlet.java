@@ -64,7 +64,7 @@ public class SendRequestServlet extends HttpServlet {
             return;
         }
 
-        String message = request.getParameter("message");
+//        String message = request.getParameter("message");
         String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
         PurchaseRequest purchaseRequest = new PurchaseRequest(
